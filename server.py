@@ -39,6 +39,9 @@ def receive_file(sock, file_path):
                 file.write(file_data)
         
         print(f'File {file_name} received successfully.')
+
+        # Send confirmation AFTER the file has been written
+        sock.send(b'File received successfully.')
         return True
     
     except Exception as error:
@@ -61,10 +64,11 @@ while True:
         message = receive_message(newSock)
         if message:
             print(f'Received message: {message}')
-            newSock.send(b'Message received successfully.')
+            newSock.send(b'Message received successfully-1.')
         
         # Receive the file: #10:
         if receive_file(newSock, 'file/'):
+            print('File received successfully (confirmed).')
             newSock.send(b'File received successfully.')
         newSock.close()
 
