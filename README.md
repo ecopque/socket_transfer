@@ -1,11 +1,11 @@
 # **Socket File Transfer**
 
-This project implements a **simple file transfer system** using **Python 3 and TCP sockets**. It allows a client to send messages and files to a server, which receives and stores them in a designated directory.
+This project implements a **simple file transfer system** using **Python 3.11 and TCP sockets**. It allows a client to send messages and files to a server, which receives and stores them in a designated directory.
 
 ---
 
 ## **Technologies Used**
-- **Python 3** – The primary programming language.
+- **Python 3.11** – The primary programming language.
 - **Sockets** – Used for communication between the client and server over TCP.
 - **OS Module** – Handles file operations such as saving received files.
 
