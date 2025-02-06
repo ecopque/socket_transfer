@@ -74,3 +74,5 @@ while True:
 
     except Exception as error:
         print(f'Error: {error}')
+
+# Need close connection?
