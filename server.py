@@ -50,7 +50,7 @@ def receive_file(sock, file_path):
 # Server configuration: #7:
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.bind((HOST, PORT))
-sock.listen(5)
+sock.listen(50)
 
 print('Server running...')
 
@@ -67,7 +67,7 @@ while True:
             newSock.send(b'Message received successfully-1.')
         
         # Receive the file: #10:
-        if receive_file(newSock, 'file/'):
+        if receive_file(newSock, 'file'):
             print('File received successfully (confirmed).')
             newSock.send(b'File received successfully.')
         newSock.close()
