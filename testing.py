@@ -28,5 +28,17 @@ def receive_file(sock, file_path):
                 if not file_data:
                     break
                 file.write(file_data)
-
         
+        print(f'File {file_name} received successfully.')
+        sock.send('File received successfully.')
+        return True
+    
+    except Exception as error:
+        print(f'Error: {error}')
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.bind(HOST, PORT)
+sock.listen(5)
+
+print('Server running...')
+
