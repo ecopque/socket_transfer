@@ -1,3 +1,5 @@
+#server
+
 import socket
 import os
 
@@ -56,6 +58,24 @@ while True:
             print(f'File received.')
             newSock.send(b'Received file.')
         newSock.close()
-        
+
     except Exception as error:
         print(f'Error: {error}')
+
+# client
+import socket
+import os
+
+HOST = 'localhost'
+PORT = 8002
+
+def send_message(sock, message):
+    try:
+        sock.send(message.encode())
+        confirmation = sock.recv(1024).decode()
+        print(f'Server: {confirmation}')
+    
+    except Exception as error:
+        print(f'Error: {error}')
+
+        
