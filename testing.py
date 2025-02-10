@@ -42,3 +42,20 @@ sock.listen(5)
 
 print('Server running...')
 
+while True:
+    try:
+        newSock, _ = sock.accept()
+        print('Received connection...')
+
+        message = receive_message(newSock)
+        if message:
+            print(f'Received message: {message}')
+            newSock.send(b'Received message.')
+
+        if receive_file(newSock, 'file/'):
+            print(f'File received.')
+            newSock.send(b'Received file.')
+        newSock.close()
+        
+    except Exception as error:
+        print(f'Error: {error}')
