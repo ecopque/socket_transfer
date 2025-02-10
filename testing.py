@@ -21,3 +21,12 @@ def receive_file(sock, file_path):
 
         os.makedirs('file', exist_ok=True)
         file_path = os.path.join('file', file_name)
+
+        with open(file_path, 'wb') as file:
+            while True:
+                file_data = sock.recv(1024)
+                if not file_data:
+                    break
+                file.write(file_data)
+
+        
